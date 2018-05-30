@@ -1,0 +1,64 @@
+﻿@model WebApp.Models.SaleBoardModel
+
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta name="viewport" content="width=device-width" />
+	<title>Index</title>
+</head>
+<body>
+	@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+	{
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<th colspan="2" align="center">Sales Board Details</th>
+			</tr>
+			<tr>
+				<td>Board Size: </td>
+				<td>
+					@Html.DropDownListFor(m => m.BoardSize, new List<SelectListItem>
+				   { new SelectListItem{Text="Small", Value="Small"},
+					 new SelectListItem{Text="Large", Value="Large"}}, "Please select")
+				</td>
+			</tr>
+			<tr>
+				<td>Location: </td>
+				<td>
+					@Html.DropDownListFor(m => m.Location, new List<SelectListItem>
+					{ new SelectListItem{Text="VIC", Value="VIC"},
+					  new SelectListItem{Text="NSW", Value="NSW"},
+					  new SelectListItem{Text="TAS", Value="TAS"},
+					  new SelectListItem{Text="WA", Value="WA"},
+					  new SelectListItem{Text="NT", Value="NT"}}, "Please select")
+				</td>
+			</tr>
+			<tr>
+				<td>Date From: </td>
+				<td>
+					
+				</td>
+			</tr>
+			<tr>
+				<td>Date To: </td>
+				<td>
+					
+				</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Submit" /></td>
+			</tr>
+		</table>
+	}
+
+	@if (Model != null)
+	{
+		<table><tr><td>Output: </td></tr><tr><td>$@Model.Price</td></tr></table>
+	}
+</body>
+</html>
