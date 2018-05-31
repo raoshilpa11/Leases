@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using WebApp.Models;
 
 namespace WebApp.Controllers
@@ -13,16 +9,11 @@ namespace WebApp.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult Index(SaleBoardModel sales)
         {
-            string boardSize = sales.BoardSize;
-            string location = sales.Location;
-            DateTime dateFrom = sales.DateFrom;
-            DateTime dateTo = sales.DateTo;
-
-
-            sales.Price = Common.CalculatePrice(boardSize, location);
+            sales = Lease.CalculatePrice(sales);
 
             return View(sales);
         }
