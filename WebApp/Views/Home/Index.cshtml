@@ -1,4 +1,4 @@
-﻿@model WebApp.Models.SaleBoardModel
+﻿@model WebApp.Models.SaleBoard
 
 @{
     Layout = null;
@@ -63,7 +63,7 @@
     @if (Model != null)
     {
         <table>
-            <tr><td>Cost: </td><td>$@Model.Price</td></tr>
+            <tr><td>Cost:  @ViewBag.datediff </td><td>$ @Model.Price</td></tr>
             <tr><td>Discount Applied: </td><td>@Model.Discount %</td></tr>            
         </table>
     }

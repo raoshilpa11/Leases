@@ -11,7 +11,7 @@ namespace WebApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(SaleBoardModel sales)
+        public ActionResult Index(SaleBoard sales)
         {
             sales = Lease.CalculatePrice(sales);
 
